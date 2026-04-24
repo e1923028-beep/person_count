@@ -42,7 +42,7 @@ with col1:
 with col2:
     st.subheader("🎮 人数シューティングゲーム")
     # GodotをHTML5でエクスポートしたファイルのパスを指定
-    game_path = pathlib.Path("./export/index.html")
+    game_path = pathlib.Path("./game/index.html")
     if game_path.exists():
         st.components.v1.html(
             game_path.read_text(encoding="utf-8"),
