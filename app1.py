@@ -16,8 +16,11 @@ def init_gspread():
         'https://www.googleapis.com/auth/spreadsheets',
         'https://www.googleapis.com/auth/drive'
     ]
-    credentials = Credentials.from_service_account_info(
-        st.secrets["gcp_service_account"], scopes=scopes
+    # st.secrets ではなく、元の JSON ファイルを読み込む方式に戻す
+    SERVICE_ACCOUNT_FILE = 'rosy-proposal-464707-i4-80dbecc88cca.json'
+    
+    credentials = Credentials.from_service_account_file(
+        SERVICE_ACCOUNT_FILE, scopes=scopes
     )
     return gspread.authorize(credentials)
 
